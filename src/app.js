@@ -4,6 +4,6 @@ const expressInstance = express()
 
 expressInstance.use(express.json())
 
-expressInstance.use(require('./routes/catalog'))
+expressInstance.use(require('./routes/CatalogRouter'))
 
 module.exports = expressInstance

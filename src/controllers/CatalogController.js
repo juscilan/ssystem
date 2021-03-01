@@ -1,4 +1,4 @@
-const Catalog = require('./../models/catalog')
+const Catalog = require('../models/CatalogModel')
 
 module.exports.create = async (req, res) => {
   try {
@@ -37,7 +37,6 @@ module.exports.delete = async (req, res) => {
     res.status(200).end()
   }
   catch(error) {
-    console.log(error)
     res.status(500).json({ errorMessage: error })
   }
 }
