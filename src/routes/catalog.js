@@ -2,12 +2,6 @@ const routes = require('express').Router()
 
 const CatalogController = require('./../controllers/catalog')
 
-
-routes.get('/', (req, res) => {
-  res.end('teste')
-})
-
-
 routes.post('/catalog', CatalogController.create)
 
 routes.get('/catalog', CatalogController.getAll)
