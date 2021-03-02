@@ -10,9 +10,9 @@ Body:
   price: 29.90
 }
 `````
-## GET - Catalogs
+## GET - Paginated Catalogs
 ````
-https://ssystem-api.herokuapp.com/catalog
+https://ssystem-api.herokuapp.com/catalog?page=4&limit=5
 ````
 ## GET BY ID - Catalogs
 ````

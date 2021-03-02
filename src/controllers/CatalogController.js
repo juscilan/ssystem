@@ -10,11 +10,21 @@ module.exports.create = async (req, res) => {
   }
 }
 
-module.exports.getAll = async (_, res) => {
+module.exports.getAll = async (req, res) => {
   try {
-    res.status(200).json(await CatalogModel.find())
+
+    const page = +req.query.page || 1;
+
+    const limit = +req.query.limit || 10;
+
+    const jump = (page - 1) * limit;
+
+    const catalog = await CatalogModel.find().skip(jump).limit(limit);
+
+    res.status(200).json(catalog);
   }
   catch(error) {
+    console.log(error)
     res.status(500).json({ errorMessage: error })
   }
 }
