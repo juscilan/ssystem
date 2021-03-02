@@ -14,11 +14,8 @@ module.exports.getAll = async (req, res) => {
   try {
 
     const page = +req.query.page || 1;
-
     const limit = +req.query.limit || 10;
-
     const jump = (page - 1) * limit;
-
     const catalog = await CatalogModel.find().skip(jump).limit(limit);
 
     res.status(200).json(catalog);
