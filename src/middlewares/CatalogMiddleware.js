@@ -20,6 +20,8 @@ const middleWareCatalog = (req, res, next) => {
     }else {
       return res.status(401).json({ errorMessage: 'Forbidden'})
     }
+  }else {
+    next()
   }
 }
 
