@@ -1,11 +1,11 @@
 const express = require("express")
 
-const expressInstance = express()
+const app = express()
 
-expressInstance.use(express.json())
+app.use(express.json())
 
-expressInstance.use(require('./middlewares/CatalogMiddleware'))
+app.use(require('./middlewares/CatalogMiddleware'))
 
-expressInstance.use(require('./routes/CatalogRouter'))
+app.use(require('./routes/CatalogRouter'))
 
-module.exports = expressInstance
+module.exports = app
