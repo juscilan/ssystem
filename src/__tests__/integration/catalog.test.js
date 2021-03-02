@@ -9,6 +9,7 @@ describe('Catalog API ', () => {
   test('Should return 201 created POST /catalog', async () => {
     const response = await request(app)
       .post('/catalog')
+      .set({ Authorization: 'LOCAL' })
       .send({
         name: 'MAIONESE HELLMANS',
         price: 8.90
@@ -20,6 +21,7 @@ describe('Catalog API ', () => {
   test('Should return 404 - POST /catalog', async () => {
     const response = await request(app)
       .post('/catalogs')
+      .set({ Authorization: 'LOCAL' })
     
     expect(response.status).toBe(404)
   })
@@ -49,6 +51,7 @@ describe('Catalog API ', () => {
   test('Should return a catalog name - GET /catalog/:id', async ()=> {
     await request(app)
       .put(`/catalog`)
+      .set({ Authorization: 'LOCAL' })
       .send({
         _id: _id,
         name: 'MAIONESE HELLMANS',
@@ -64,6 +67,7 @@ describe('Catalog API ', () => {
   test('Should update a catalog name - PUT /catalog', async () => {
     const response = await request(app)
       .put(`/catalog`)
+      .set({ Authorization: 'LOCAL' })
       .send({
         _id: _id,
         name: 'MAIONESE HELLMANS LIGH',
@@ -75,6 +79,7 @@ describe('Catalog API ', () => {
   test('Should delete a catalog - DELETE /catalog', async () => {
     const response = await request(app)
       .del(`/catalog/${_id}`)
+      .set({ Authorization: 'LOCAL' })
       .send({
         _id: _id
       })
