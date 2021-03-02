@@ -1,13 +1,13 @@
 # Instruções
 
-# Resource name
-## /catalog
+# Resource name /catalog
 
-## POST - Catalog
+## POST - Catalog (Authenticated)
 ````
 https://ssystem-api.herokuapp.com/catalog
 
 Body:
+
 {
   name: 'SANDALIA HAVAIANAS',
   price: 29.90
@@ -22,18 +22,19 @@ https://ssystem-api.herokuapp.com/catalog?page=4&limit=5
 https://ssystem-api.herokuapp.com/catalog/92384790284009
 `````
 
-## PUT - Catalog
+## PUT - Catalog (Authenticated)
 ````
 https://ssystem-api.herokuapp.com/catalog
 
-Body 
+Body:
+
 {
   _id: 92384790284009,
   name: 'SANDALIA HAVAIANAS MASC',
   price: 39.90
 }
 `````
-## DELETE BY ID - Catalog
+## DELETE BY ID - Catalog (Authenticated)
 ````
 https://ssystem-api.herokuapp.com/catalog/92384790284009
 ````
