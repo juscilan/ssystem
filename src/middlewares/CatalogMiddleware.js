@@ -10,18 +10,17 @@ module.exports.isAutenticatedMethod = method => {
 
 const middleWareCatalog = (req, res, next) => {
   const TOKEN = process.env.TOKEN || 'LOCAL'
-
   if(exports.isAutenticatedMethod(req.method)){
     if(req.headers.authorization) {
-      if(req.headers.authorization =! TOKEN) {
+      if(req.headers.authorization === TOKEN) {
+        next()
+      }else {
         return res.status(401).json({ errorMessage: 'Forbidden'})
       }
     }else {
       return res.status(401).json({ errorMessage: 'Forbidden'})
     }
-    
   }
-  next()
 }
 
 module.exports = middleWareCatalog
