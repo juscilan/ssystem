@@ -1,16 +1,8 @@
-module.exports.isAutenticatedMethod = method => {
-  const methods = [
-    'POST',
-    'PUT',
-    'PATCH',
-    'DELETE'
-  ]
-  return !!methods.filter(item => method === item).length
-}
+const catalogUtils = require('../utils/Catalog')
 
 const middleWareCatalog = (req, res, next) => {
   const TOKEN = process.env.TOKEN || 'LOCAL'
-  if(exports.isAutenticatedMethod(req.method)){
+  if(catalogUtils.isAutenticatedMethod(req.method)){
     if(req.headers.authorization) {
       if(req.headers.authorization === TOKEN) {
         next()

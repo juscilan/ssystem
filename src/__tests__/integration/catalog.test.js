@@ -26,14 +26,14 @@ describe('Catalog API ', () => {
     expect(response.status).toBe(404)
   })
 
-  test('Should return 200OK - GET /catalog', async ()=> {
+  test('Should return 200OK - GET /catalog', async () => {
     const response = await request(app)
       .get('/catalog')
 
     expect(response.status).toBe(200)
   })
 
-  test('Should return lengh > 0 - GET /catalog', async ()=> {
+  test('Should return lengh > 0 - GET /catalog', async () => {
     const response = await request(app)
       .get('/catalog')
 
@@ -41,14 +41,14 @@ describe('Catalog API ', () => {
       _id = response.body[0]._id
   })
 
-  test('Should return 200OK - GET /catalog/:id', async ()=> {
+  test('Should return 200OK - GET /catalog/:id', async () => {
     const response = await request(app)
       .get(`/catalog/${_id}`)
     
     expect(response.status).toEqual(200)
   })
 
-  test('Should return a catalog name - GET /catalog/:id', async ()=> {
+  test('Should return a catalog name - GET /catalog/:id', async () => {
     await request(app)
       .put(`/catalog`)
       .set({ Authorization: 'LOCAL' })

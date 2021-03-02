@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "npx jest",
+    "test": "npx jest --verbose",
     "dev": "nodemon src/server --ignore __tests__",
     "start": "node src/server.js"
   },
