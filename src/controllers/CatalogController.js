@@ -32,10 +32,10 @@ module.exports.getAll = async (req, res) => {
 module.exports.getById = async (req, res) => {
   const catalogId = req.params.id
   try {
-    res.status(200).json(await CatalogModel.findOne({ _id: catalogId }))
+    const product = await CatalogModel.findOne({ _id: catalogId })
+    res.status(200).json(product ? product : { message: 'Product not found'})
   }
   catch(error) {
-    console.log(error)
     res.status(500).json({ errorMessage: error })
   }
 }
@@ -46,7 +46,7 @@ module.exports.update = async (req, res) => {
   try {
     const doc = (await CatalogModel.findOne({ _id: catalogId }))
     if(!doc) {
-      return res.status(400).json({ errorMessage: 'Catalog ID not found!' })
+      return res.status(400).json({ message: 'Product not found!' })
     }
     await doc.updateOne(catalogBody)
     return res.status(200).json({name: catalogBody.name})
