@@ -1,6 +1,9 @@
 # Instruções
 
-## POST - Catalogs
+# Resource name
+## /catalog
+
+## POST - Catalog
 ````
 https://ssystem-api.herokuapp.com/catalog
 
@@ -10,16 +13,16 @@ Body:
   price: 29.90
 }
 `````
-## GET - Paginated Catalogs
+## GET - Paginated Catalog
 ````
 https://ssystem-api.herokuapp.com/catalog?page=4&limit=5
 ````
-## GET BY ID - Catalogs
+## GET BY ID - Catalog
 ````
 https://ssystem-api.herokuapp.com/catalog/92384790284009
 `````
 
-## PUT - Catalogs
+## PUT - Catalog
 ````
 https://ssystem-api.herokuapp.com/catalog
 
@@ -30,7 +33,7 @@ Body
   price: 39.90
 }
 `````
-## DELETE BY ID - Catalogs
+## DELETE BY ID - Catalog
 ````
 https://ssystem-api.herokuapp.com/catalog/92384790284009
 ````
