@@ -5,15 +5,22 @@ module.exports.isAutenticatedMethod = method => {
     'PATCH',
     'DELETE'
   ]
-
   return !!methods.filter(item => method === item).length
 }
 
 const middleWareCatalog = (req, res, next) => {
   const TOKEN = process.env.TOKEN || 'LOCAL'
-  if(exports.isAutenticatedMethod(req.method) && req.headers.authorization ==! TOKEN)
-    return res.status(401).json({ errorMessage: 'Forbidden'})
 
+  if(exports.isAutenticatedMethod(req.method)){
+    if(req.headers.authorization) {
+      if(req.headers.authorization =! TOKEN) {
+        return res.status(401).json({ errorMessage: 'Forbidden'})
+      }
+    }else {
+      return res.status(401).json({ errorMessage: 'Forbidden'})
+    }
+    
+  }
   next()
 }
 
